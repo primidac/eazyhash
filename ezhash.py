@@ -31,19 +31,19 @@ while True:
     try:
         prompt = input('=>')
         if prompt == command[0]:
-        	myhash = input('Hash Algo')
+        	myhash = input('Hash Algo:')
         	string = input('String:')
         	if myhash in hash_algo.keys():
         		hashed = hash_algo[myhash](string.encode()).hexdigest()
-        	else:
-        		print("Algorithm do not exist or not supported yet")
         		print(Fore.GREEN)
         		for x in tqdm(range(int(100)), ascii=True, desc='Hashing'):
-        			# pass
-        			sleep(0.1)
+        			sleep(0.01)
         		pyperclip.copy(hashed)
         		print('hash copy to clipboard')
         		print(Style.RESET_ALL)
+        	else:
+        		print("Algorithm do not exist or not supported yet")
+        		
 
     except Exception as e:
     	raise e
